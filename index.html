@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tile Map Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Background Music Toggle Button -->
+    <button id="muteBtn" class="mute-btn">🔊</button>
+
+
+    <!-- D-pad container -->
+    <div class="dpad">
+        <button class="btn up" data-dir="up">▲</button>
+        <button class="btn left" data-dir="left">◀</button>
+        <button class="btn right" data-dir="right">▶</button>
+        <button class="btn down" data-dir="down">▼</button>
+    </div>
+
+    <!-- Interact button -->
+    <button class="interact-btn" data-action="interact">⏎</button>
+
+    <script src="main.js"></script>
+</body>
+</html>
