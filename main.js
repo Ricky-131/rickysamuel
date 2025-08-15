@@ -287,7 +287,7 @@ function drawDialogueBox() {
 
     // Text
     ctx.fillStyle = "white";
-    ctx.font = "12px Arial";
+    ctx.font = "14px Arial";
 
     const lineHeight = 16;
     const startX = boxX + 10;
