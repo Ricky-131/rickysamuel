@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 let mapData, tilesetImage, playerImage;
 const TILE_SIZE = 16;
-let speed = 2;
+let speed = 1;
 
 let playerX = 23 * TILE_SIZE;
 let playerY = 4 * TILE_SIZE;
