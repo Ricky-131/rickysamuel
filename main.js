@@ -3,10 +3,10 @@ const ctx = canvas.getContext("2d");
 
 let mapData, tilesetImage, playerImage;
 const TILE_SIZE = 16;
-let speed = 1;
+let speed = 2;
 
-let playerX = 5 * TILE_SIZE;
-let playerY = 5 * TILE_SIZE;
+let playerX = 23 * TILE_SIZE;
+let playerY = 4 * TILE_SIZE;
 let playerWidth = TILE_SIZE;
 let playerHeight = TILE_SIZE;
 
@@ -48,11 +48,39 @@ const frameInterval = 10;
 let playerDirection = "down";
 let showCollisionDebug = false;
 
-// Background music
-let bgMusic = new Audio("assets/audio/bg-music.mp3");
-bgMusic.loop = true;
-bgMusic.volume = 0.3; // Adjust volume here
+// Background music shuffle system
+let audioFiles = [
+    "song1.mp3",
+    "song2.mp3",
+    "song3.mp3"
+    // Add more file names here
+];
+let currentTrackIndex = -1;
+let bgMusic = new Audio();
+bgMusic.volume = 0.3;
 let isMuted = false;
+let autoplayBlocked = false;
+
+
+function playRandomTrack() {
+    let nextIndex;
+    do {
+        nextIndex = Math.floor(Math.random() * audioFiles.length);
+    } while (audioFiles.length > 1 && nextIndex === currentTrackIndex);
+
+    currentTrackIndex = nextIndex;
+    bgMusic.src = `assets/audio/${audioFiles[currentTrackIndex]}`;
+    bgMusic.play().catch(() => {
+        console.log("Music autoplay blocked. Muting until user unmutes.");
+        autoplayBlocked = true;
+        isMuted = true;
+        bgMusic.muted = true;
+        document.getElementById("muteBtn").textContent = "🔇";
+    });
+}
+
+bgMusic.addEventListener("ended", playRandomTrack);
+
 
 async function loadJSON(url) {
     const res = await fetch(url);
@@ -70,9 +98,11 @@ async function init() {
     mapData = await loadJSON("assets/maps/map.json");
     await loadTilesets();
     playerImage = await loadImage("assets/sprites/player.png");
-    bgMusic.play().catch(() => {
-        console.log("Music autoplay blocked, will start on first user interaction.");
-    });
+    // bgMusic.play().catch(() => {
+    //     console.log("Music autoplay blocked, will start on first user interaction.");
+    // });
+    playRandomTrack();
+
 
 
     loadCollisionData(mapData);
@@ -157,7 +187,6 @@ function checkInteraction() {
 }
 
 function update() {
-    // if (activeDialogue) return; // stop movement during dialogue
     if (dialogueOpen) return;
 
     let moveX = 0, moveY = 0;
@@ -466,6 +495,12 @@ document.getElementById("muteBtn").addEventListener("click", () => {
     isMuted = !isMuted;
     bgMusic.muted = isMuted;
     document.getElementById("muteBtn").textContent = isMuted ? "🔇" : "🔊";
+
+    // If autoplay was blocked and user unmutes, start playing immediately
+    if (!isMuted && autoplayBlocked) {
+        autoplayBlocked = false; // reset flag
+        bgMusic.play().catch(err => console.warn("Couldn't start music after unmuting:", err));
+    }
 });
 
 init();
