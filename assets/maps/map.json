@@ -1,4 +1,12 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json",
+         "target":"map.json"
+        }
+    },
  "height":16,
  "infinite":false,
  "layers":[
@@ -440,6 +448,23 @@
                  "width":9.66666666666669,
                  "x":501.333333333333,
                  "y":31
+                }, 
+                {
+                 "height":22.3333333333333,
+                 "id":38,
+                 "name":"map",
+                 "properties":[
+                        {
+                         "name":"text",
+                         "type":"string",
+                         "value":"I live in Chennai, Tamil Nadu, India."
+                        }],
+                 "rotation":0,
+                 "type":"interaction",
+                 "visible":true,
+                 "width":30.6666666666667,
+                 "x":288.666666666667,
+                 "y":9.33333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -448,7 +473,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":38,
+ "nextobjectid":40,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
