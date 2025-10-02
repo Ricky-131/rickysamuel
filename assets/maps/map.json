@@ -457,7 +457,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"located in Chennai."
+                         "value":"located in Chennai, India."
                         }],
                  "rotation":0,
                  "type":"interaction",
