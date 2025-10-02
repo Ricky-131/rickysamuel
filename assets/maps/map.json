@@ -457,7 +457,7 @@
                         {
                          "name":"text",
                          "type":"string",
-                         "value":"I live in Chennai, Tamil Nadu, India."
+                         "value":"located in Chennai."
                         }],
                  "rotation":0,
                  "type":"interaction",
