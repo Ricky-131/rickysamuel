@@ -465,6 +465,23 @@
                  "width":30.6666666666667,
                  "x":288.666666666667,
                  "y":24
+                }, 
+                {
+                 "height":20.6666666666667,
+                 "id":40,
+                 "name":"Work info",
+                 "properties":[
+                        {
+                         "name":"text",
+                         "type":"string",
+                         "value":"A developer passionate about building |interactive web experiences and games.|I enjoy blending creativity with technical |problem-solving, and I\u2019m currently working on |projects that showcase both design and code.|Always open to learning, collaborating, and |creating something impactful."
+                        }],
+                 "rotation":0,
+                 "type":"interaction",
+                 "visible":true,
+                 "width":27,
+                 "x":114.333333333333,
+                 "y":18
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -473,7 +490,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":40,
+ "nextobjectid":41,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
