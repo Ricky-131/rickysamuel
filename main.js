@@ -438,7 +438,7 @@ function gameLoop() {
 window.addEventListener("keydown", e => {
     keys[e.key] = true;
 
-    if (e.key === "Enter" || e.key === "f") {
+    if (e.key === "Enter" || e.key === "f" || e.key === "F" || e.key === " ") {
         if (!dialogueOpen) {
             const zone = checkInteraction();
             if (zone) {
